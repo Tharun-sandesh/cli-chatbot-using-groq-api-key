@@ -4,6 +4,7 @@ from config import get_groq_client
 # Sets the browser tab title and icon
 st.set_page_config(page_title="My AI Chatbot", page_icon="🤖")
 st.title("🤖 My AI Chatbot")
+st.caption("© 2026 Tharun Sandesh. All rights reserved.")
 
 # Get a ready-to-use connection to Groq (key handled inside config.py)
 client = get_groq_client()
@@ -38,26 +39,3 @@ if user_input:
     st.session_state.messages.append({"role": "assistant", "content": answer})
     with st.chat_message("assistant"):
         st.write(answer)
-
-# --- Footer with trademark / copyright ---
-st.markdown(
-    """
-    <style>
-    .footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        text-align: center;
-        color: gray;
-        font-size: 0.8rem;
-        padding: 8px 0;
-        background-color: rgba(255, 255, 255, 0.9);
-    }
-    </style>
-    <div class="footer">
-        © 2026 Tharun Sandesh. All rights reserved.
-    </div>
-    """,
-    unsafe_allow_html=True
-)
