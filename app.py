@@ -31,7 +31,8 @@ if user_input:
     # Send it to the AI model
     response = client.chat.completions.create(
         model="openai/gpt-oss-20b",
-        messages=[{"role": "user", "content": user_input}]
+        #messages=[{"role": "user", "content": user_input}]
+        messages=st.session_state.messages   #sending the entire conversation again to model to remeber the context
     )
     answer = response.choices[0].message.content
 
